@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
-function App() {
+
+export default function App() {
+
+  const[message , setMessage]  = useState(false)
+  const autoMessage = ["aline" ,"symplice" , "Armel" , "Armel"]
+  const  getMessage = () => {
+    setMessage (!message)
+  }
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="w-full max-w-7xl mx-auto mt-24 flex flex-col gap-y-8 justify-center items-center">
+      <button
+        className={`p-3 rounded-lg ${message ? "bg-red-500" : "bg-blue-500"}`}
+        onClick={getMessage}
+        // onClick={() => setMessage(!message)}
+      >
+        {!message ? "Show unreal message" : "go back to home page"}
+      </button>
+      {message && (
+        <div>
+          <h2 className="text-2xl text-red-500">Hellooo</h2>
+          <p className="text-lg font-bold">
+            you have {autoMessage.length} an read message
+          </p>
+        </div>
+      )}
     </div>
   );
-}
-
-export default App;
+      }
