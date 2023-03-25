@@ -14,7 +14,7 @@ export default function Sidebar(){
                <div className='grid grid-col gap-y-4'>
                <div className="flex items-center text-red-500 text-6xl px-4">
                     <div>
-                    <img className='h-24 w-24' src={process.env.PUBLIC_URL + '/images/chat-point-business-logo-vector-removebg-preview.png'} />
+                    <img className='h-24 w-24' src={process.env.PUBLIC_URL + '/images/chat-point-business-logo-vector-removebg-preview.png'} alt="logo"/>
                     </div>
                 </div>
                <div className="mt-6 flex items-center bg-sky-50 px-4 py-2 rounded-xl hover:bg-violet-500 hover:text-white cursor-pointer">
