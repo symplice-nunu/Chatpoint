@@ -3,19 +3,19 @@ import '../App.css'
 import {FaChevronDown} from 'react-icons/fa'
 import {FaUserCircle} from 'react-icons/fa'
 import {FaRegBell} from 'react-icons/fa'
+import Dropdown from './Dropdown'
 import {FaRegTimesCircle} from 'react-icons/fa'
 import {FaQuestionCircle} from 'react-icons/fa'
 import Sidebar from './Sidebar'
-import Dropdown from './Dropdown'
 
 export default function Dashboard(){
     return(
         
-        <div className="justify-left  flex my-10 mb-2 bg-white py-6 mx-12 rounded-t-3xl rounded-b-3xl">
+        <div>
             {/* Sidebar Options. Done by Symplice 21.03.2023  */}
-           <Sidebar />
+          
             {/* Morning Messages for Users. Done by Symplice 21.03.2023  */}
-            <div class="flex flex-col gap-y-6 bg-sky-50 w-full py-8 px-8 mr-6 rounded-t-3xl rounded-b-3xl">
+            <div class="flex flex-col gap-y-6 bg-sky-50 w-auto py-8 px-8 mr-6 rounded-t-3xl rounded-b-3xl">
                 <div>
                      <div className='flex justify-between items-center text-sky-900 font-bold mb-4'>
                        <div className='flex items-center'>
