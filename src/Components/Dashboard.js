@@ -97,6 +97,7 @@ export default function Dashboard(){
                     </div>
                     </div>
                 </div>
+                
                 <div className="flex">
                     <div className="bg-white rounded-xl px-3 py-3 h-auto w-full mr-4">
                     {/* SSL about to expire table. Done by Symplice 22.03.2023 */}
