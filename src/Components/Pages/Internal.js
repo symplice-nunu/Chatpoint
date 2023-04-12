@@ -1,8 +1,10 @@
 import NavBar from "../NavBar";
 import React from "react";
+import { Data } from "../Data/Data";
 
 export default function Internal(){
     const [showModal, setShowModal] = React.useState(false);
+    
     return(
         
         <div class="flex flex-col gap-y-6 bg-sky-50 w-full py-8 px-8 mr-6 rounded-t-3xl rounded-b-3xl">
@@ -50,11 +52,10 @@ export default function Internal(){
         <input
           type="text"
           name="name"
-          placeholder=" "
+          placeholder="Enter name"
           required
-          class="block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+          class="block w-full px-0 mt-0 bg-transparent border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black border-gray-200"
         />
-        <label for="name" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Enter name</label>
         <span class="text-sm text-red-600 hidden" id="error">Name is required</span>
       </div>
 
@@ -62,10 +63,9 @@ export default function Internal(){
         <input
           type="email"
           name="email"
-          placeholder=" "
-          class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+          placeholder="Enter email address"
+          class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black border-gray-200"
         />
-        <label for="email" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Enter email address</label>
         <span class="text-sm text-red-600 hidden" id="error">Email address is required</span>
       </div>
 
@@ -73,10 +73,9 @@ export default function Internal(){
         <input
           type="password"
           name="password"
-          placeholder=" "
-          class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+          placeholder="Enter password"
+          class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black border-gray-200"
         />
-        <label for="password" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Enter password</label>
         <span class="text-sm text-red-600 hidden" id="error">Password is required</span>
       </div>
 
@@ -110,17 +109,14 @@ export default function Internal(){
           name="select"
           value=""
           onclick="this.setAttribute('value', this.value);"
-          class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none z-1 focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+          class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 z-1 focus:outline-none focus:ring-0 focus:border-black border-gray-200"
         >
-          <option value="" selected disabled hidden></option>
           <option value="1">Option 1</option>
           <option value="2">Option 2</option>
           <option value="3">Option 3</option>
           <option value="4">Option 4</option>
           <option value="5">Option 5</option>
         </select>
-        <label for="select" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Select an option</label>
-        <span class="text-sm text-red-600 hidden" id="error">Option has to be selected</span>
       </div>
 
       <div class="flex flex-row space-x-4">
@@ -128,22 +124,20 @@ export default function Internal(){
           <input
             type="text"
             name="date"
-            placeholder=" "
+            placeholder="Date"
             onclick="this.setAttribute('type', 'date');"
-            class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+            class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black border-gray-200"
           />
-          <label for="date" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Date</label>
           <span class="text-sm text-red-600 hidden" id="error">Date is required</span>
         </div>
         <div class="relative z-0 w-full">
           <input
             type="text"
             name="time"
-            placeholder=" "
+            placeholder="Time"
             onclick="this.setAttribute('type', 'time');"
-            class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+            class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black border-gray-200"
           />
-          <label for="time" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Time</label>
           <span class="text-sm text-red-600 hidden" id="error">Time is required</span>
         </div>
       </div>
@@ -152,11 +146,10 @@ export default function Internal(){
         <input
           type="number"
           name="money"
-          placeholder=" "
-          class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+          placeholder="Amount"
+          class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black border-gray-200"
         />
         <div class="absolute top-0 left-0 mt-3 ml-1 text-gray-400">$</div>
-        <label for="money" class="absolute duration-300 top-3 left-5 -z-1 origin-0 text-gray-500">Amount</label>
         <span class="text-sm text-red-600 hidden" id="error">Amount is required</span>
       </div>
 
@@ -164,11 +157,10 @@ export default function Internal(){
         <input
           type="text"
           name="duration"
-          placeholder=" "
+          placeholder="Duration"
           class="pt-3 pb-2 pr-12 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
         />
         <div class="absolute top-0 right-0 mt-3 mr-4 text-gray-400">min</div>
-        <label for="duration" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Duration</label>
         <span class="text-sm text-red-600 hidden" id="error">Duration is required</span>
       </div>
     </form>
@@ -204,176 +196,30 @@ export default function Internal(){
                     <div>
                             <table className='w-full'>
                                 <tr className='text-sky-600 h-10'>
+                                    <th className='w-48 text-center pl-3'>ID</th>
                                     <th className='w-48 text-left pl-3'>Company</th>
                                     <th className='w-32 text-left'>Start Date</th>
                                     <th className='w-32 text-left'>End date</th>
                                     <th className='w-32 text-left'>Start Date</th>
                                     <th className='w-32 text-left'>End date</th>
-                                    <th className='w-32 text-left'>Start Date</th>
                                     <th className='text-left'>Remark</th>
                                 </tr>
-                                <tr className='bg-sky-50 text-sky-800 text-xs h-8 rounded-xl'>
-                                    <td className='pl-3'>Microsoft</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>please leave a note</td>
+                                {
+                                  Data.map((item, index) => {
+                                    return(
+                                  <tr key={index} className={`${index % 2 === 0 ? 'bg-sky-50' : 'bg-white'} text-sky-800 text-xs h-8 rounded-xl`}>
+                                    <td className="text-center">{item.id}</td>
+                                    <td className='pl-3'>{item.Company}</td>
+                                    <td>{item.StartDate}</td>
+                                    <td>{item.EndDate}</td>
+                                    <td>{item.StartDate}</td>
+                                    <td>{item.EndDate}</td>
+                                    <td>{item.Remark}</td>
                                 </tr>
-                                <tr className=' text-sky-800 text-xs h-8 rounded-xl'>
-                                    <td className='pl-3'>Amazon</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>No Comments</td>
-                                </tr>
-                                <tr className='bg-sky-50 text-sky-800 text-xs h-8 rounded-xl'>
-                                    <td className='pl-3'>Google</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>Ordering pizza</td>
-                                </tr>
-                                <tr className=' text-sky-800 text-xs h-8 rounded-xl'>
-                                    <td className='pl-3'>Apple</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>Who bit off my apple?</td>
-                                </tr>
-                                <tr className='bg-sky-50 text-sky-800 text-xs h-8 rounded-xl'>
-                                    <td className='pl-3'>IMDB</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>Rate this app</td>
-                                </tr>
-                                <tr className=' text-sky-800 text-xs h-8 rounded-xl'>
-                                    <td className='pl-3'>Apple</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>Who bit off my apple?</td>
-                                </tr>
-                                <tr className='bg-sky-50 text-sky-800 text-xs h-8 rounded-xl'>
-                                    <td className='pl-3'>IMDB</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>Rate this app</td>
-                                </tr>
-                                <tr className=' text-sky-800 text-xs h-8 rounded-xl'>
-                                    <td className='pl-3'>Apple</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>Who bit off my apple?</td>
-                                </tr>
-                                <tr className='bg-sky-50 text-sky-800 text-xs h-8 rounded-xl'>
-                                    <td className='pl-3'>IMDB</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>Rate this app</td>
-                                </tr>
-                                <tr className=' text-sky-800 text-xs h-8 rounded-xl'>
-                                    <td className='pl-3'>Apple</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>Who bit off my apple?</td>
-                                </tr>
-                                <tr className='bg-sky-50 text-sky-800 text-xs h-8 rounded-xl'>
-                                    <td className='pl-3'>IMDB</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>Rate this app</td>
-                                </tr>
-                                <tr className=' text-sky-800 text-xs h-8 rounded-xl'>
-                                    <td className='pl-3'>Apple</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>Who bit off my apple?</td>
-                                </tr>
-                                <tr className='bg-sky-50 text-sky-800 text-xs h-8 rounded-xl'>
-                                    <td className='pl-3'>IMDB</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>Rate this app</td>
-                                </tr>
-                                <tr className=' text-sky-800 text-xs h-8 rounded-xl'>
-                                    <td className='pl-3'>Apple</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>Who bit off my apple?</td>
-                                </tr>
-                                <tr className='bg-sky-50 text-sky-800 text-xs h-8 rounded-xl'>
-                                    <td className='pl-3'>IMDB</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>Rate this app</td>
-                                </tr>
-                                <tr className=' text-sky-800 text-xs h-8 rounded-xl'>
-                                    <td className='pl-3'>Apple</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>Who bit off my apple?</td>
-                                </tr>
-                                <tr className='bg-sky-50 text-sky-800 text-xs h-8 rounded-xl'>
-                                    <td className='pl-3'>IMDB</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>Rate this app</td>
-                                </tr>
-                                <tr className=' text-sky-800 text-xs h-8 rounded-xl'>
-                                    <td className='pl-3'>Apple</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>10.04.22</td>
-                                    <td>Who bit off my apple?</td>
-                                </tr>
+                                    )
+                                    })
+                                }
+                                
                                 
                             </table>
                         

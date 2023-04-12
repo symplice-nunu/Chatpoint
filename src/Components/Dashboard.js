@@ -6,9 +6,16 @@ import {FaRegBell} from 'react-icons/fa'
 import Dropdown from './Dropdown'
 import {FaRegTimesCircle} from 'react-icons/fa'
 import {FaQuestionCircle} from 'react-icons/fa'
-import Sidebar from './Sidebar'
+import { useState } from 'react'
+import { SSLExpire } from './Data/SSLData'
+import { ScrumSummary } from './Data/ScrumSummary'
 
 export default function Dashboard(){
+    const [data, setData] = useState({
+        flashMessage: true,
+    })
+
+    
     return(
         
         <div>
@@ -38,20 +45,22 @@ export default function Dashboard(){
                      <div className='text-sky-300 text-xs pt-2'>Good morning MUTESI Aline please pay attention to your outstanding issues.</div>
                 </div>
                 {/* Contents for Announcement. Done by Symplice 21.03.2023  */}
-                <div className="flex flex-col bg-orange-200 px-8 py-8 text-orange-500 rounded-2xl">
-                    <span className="mb-2 flex">
-                        <span className='mt-1 pr-2'>
-                            <FaQuestionCircle />
-                        </span>
-                        <b>Announcement!</b>
-                        </span>
-                    <div className='pl-6 flex justify-between items-center'>
-                        <div>ChainPoint Support will be upgraded to release 6.10 on Wednesday 6 April. Thanks to the use of slot deployment</div>
-                        <div className='text-2xl'><FaRegTimesCircle /></div>
+                {
+                    data.flashMessage && <div className="flex flex-col bg-orange-200 px-8 py-8 text-orange-500 rounded-2xl">
+                        <span className="mb-2 flex">
+                            <span className='mt-1 pr-2'>
+                                <FaQuestionCircle />
+                            </span>
+                            <b>Announcement!</b>
+                            </span>
+                        <div className='pl-6 flex justify-between items-center'>
+                            <div>ChainPoint Support will be upgraded to release 6.10 on Wednesday 6 April. Thanks to the use of slot deployment</div>
+                            <div onClick={() => setData({ ...data, flashMessage: false })} className='text-2xl cursor-pointer'><FaRegTimesCircle /></div>
+                        </div>
+                        <span className='pl-6'>functionality no outage time is expected. After the upgrade a new message will be posted here.</span>
+                        <span className='pl-6'>-- ChainPoint Support Team, 20.03.23</span>
                     </div>
-                    <span className='pl-6'>functionality no outage time is expected. After the upgrade a new message will be posted here.</span>
-                    <span className='pl-6'>-- ChainPoint Support Team, 20.03.23</span>
-                </div>
+                }
                 {/* Cards sections for Hight priority issues and issue ready for test. Done by Symplice 21.03.2023 */}
                 <div class="grid grid-cols-4 gap-4">
                     <div className="bg-white rounded-xl px-3 py-8 flex items-center">
@@ -121,36 +130,19 @@ export default function Dashboard(){
                                     <th className='w-32 text-left'>End date</th>
                                     <th className='text-left'>Remark</th>
                                 </tr>
-                                <tr className='bg-sky-50 text-sky-800 text-xs h-8 rounded-xl'>
-                                    <td className='pl-3'>Microsoft</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>please leave a note</td>
+                                {
+                                    SSLExpire.map((item, index) => {
+                                        return(
+                                    <tr key={index} className={`${index % 2 === 0 ? "bg-sky-50" : "bg-white"} text-sky-800 text-xs h-8 rounded-xl`}>
+                                    <td className='pl-3'>{item.Company}</td>
+                                    <td>{item.StartDate}</td>
+                                    <td>{item.EndDate}</td>
+                                    <td>{item.Remark}</td>
                                 </tr>
-                                <tr className=' text-sky-800 text-xs h-8 rounded-xl'>
-                                    <td className='pl-3'>Amazon</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>No Comments</td>
-                                </tr>
-                                <tr className='bg-sky-50 text-sky-800 text-xs h-8 rounded-xl'>
-                                    <td className='pl-3'>Google</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>Ordering pizza</td>
-                                </tr>
-                                <tr className=' text-sky-800 text-xs h-8 rounded-xl'>
-                                    <td className='pl-3'>Apple</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>Who bit off my apple?</td>
-                                </tr>
-                                <tr className='bg-sky-50 text-sky-800 text-xs h-8 rounded-xl'>
-                                    <td className='pl-3'>IMDB</td>
-                                    <td>10.04.22</td>
-                                    <td>10.10.22</td>
-                                    <td>Rate this app</td>
-                                </tr>
+                                        )
+                                    })
+                                }
+                               
                             </table>
                         
                         </div>
@@ -171,31 +163,18 @@ export default function Dashboard(){
                                     <th className='w-32 text-left text-xs'>Total Hours</th>
                                     <th className='w-32 text-left text-xs'>Hours Available</th>
                                 </tr>
-                                <tr className='bg-sky-50 text-sky-800 text-xs h-8 rounded-xl'>
-                                    <td className='pl-3'>Jane Cooper</td>
-                                    <td>4.5</td>
-                                    <td>80</td>
-                                </tr>
-                                <tr className=' text-sky-800 text-xs h-8 rounded-xl'>
-                                    <td className='pl-3'>Esther Howard</td>
-                                    <td>5.6</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr className='bg-sky-50 text-sky-800 text-xs h-8 rounded-xl'>
-                                    <td className='pl-3'>Cameron Williamson</td>
-                                    <td>12</td>
-                                    <td>16</td>
-                                </tr>
-                                <tr className=' text-sky-800 text-xs h-8 rounded-xl'>
-                                    <td className='pl-3'>Leslie Alexander</td>
-                                    <td>36</td>
-                                    <td>23</td>
-                                </tr>
-                                <tr className='bg-sky-50 text-sky-800 text-xs h-8 rounded-xl'>
-                                    <td className='pl-3'>Jenny Wilson</td>
-                                    <td>350</td>
-                                    <td>45</td>
-                                </tr>
+                               {
+                                ScrumSummary.map((item, index) => {
+                                    return(
+                                        <tr key={index} className={`${index % 2 === 0 ? "bg-sky-50" : "bg-white"} text-sky-800 text-xs h-8 rounded-xl`}>
+                                        <td className='pl-3'>{item.Responsible}</td>
+                                        <td>{item.TotalHours}</td>
+                                        <td>{item.HoursAvailable}</td>
+                                    </tr>
+                                    )
+                                })
+                               }
+                                
                             </table>
                         </div>
                     </div>

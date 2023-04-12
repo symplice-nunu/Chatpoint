@@ -6,10 +6,43 @@ import {FaJsfiddle} from 'react-icons/fa'
 import {FaBan} from 'react-icons/fa'
 import {FaBrush} from 'react-icons/fa'
 import React from 'react'
-import Issues from './Pages/Issues'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 export default function Sidebar(){
+    // const[active, setActive] = useState(true);
+    const location = useLocation();
+
+    // const getActive = () => {
+    //     // setActive(!active);
+    // }
+    const active = location.pathname
+    const links = [
+        {
+            path: '/',
+            link: 'Company',
+            icon: <FaJsfiddle />
+        },
+        {
+            path: '/issues',
+            link: 'Issues',
+            icon: <FaBan />
+        },
+        {
+            path: '/internal',
+            link: 'Internal',
+            icon: <FaBrush />
+        },
+        {
+            path: '/projects',
+            link: 'Projects',
+            icon: <FaReceipt />
+        },
+        {
+            path: '/development',
+            link: 'Development',
+            icon: <FaRecordVinyl />
+        },
+    ]
     return(
          /* Sidebar Options. Done by Symplice 21.03.2023  */
         <div className="mx-4 w-[140px] mt-8 flex flex-col justify-between text-sky-800">
@@ -19,46 +52,20 @@ export default function Sidebar(){
                     <img className='h-24 w-24' src={process.env.PUBLIC_URL + '/images/chat-point-business-logo-vector-removebg-preview.png'} alt="logo"/>
                     </div>
                 </div>
-                <Link to="/">
-               <div className="mt-6 flex items-center bg-sky-50 px-4 py-2 rounded-xl hover:bg-violet-500 hover:text-white cursor-pointer">
-                    <div>
-                        <FaJsfiddle />
-                    </div>
-                    <div>&nbsp;Company</div>
-                </div>
-                </Link>
-                <Link to='/issues'>
-                    <div className="flex items-center px-4 py-2 rounded-xl hover:bg-violet-500 hover:text-white cursor-pointer">
-                        <div>
-                            <FaBan />
-                        </div>
-                        <div>&nbsp;Issues</div>
-                    </div>
-                </Link>
-                <Link to='/internal'>
-                <div className="flex items-center  px-4 py-2 rounded-xl hover:bg-violet-500 hover:text-white cursor-pointer">
-                    <div>
-                        <FaBrush />
-                    </div>
-                    <div>&nbsp;Internal</div>
-                </div>
-                </Link>
-                <Link to='/projects'>
-                <div className="flex items-center  px-4 py-2 rounded-xl hover:bg-violet-500 hover:text-white cursor-pointer">
-                    <div>
-                        <FaReceipt />
-                    </div>
-                    <div>&nbsp;Projects</div>
-                </div>
-                </Link>
-                <Link to="/development">
-                <div className="flex items-center  px-4 py-2 rounded-xl hover:bg-violet-500 hover:text-white cursor-pointer">
-                    <div>
-                        <FaRecordVinyl />
-                    </div>
-                    <div>&nbsp;Development</div>
-                </div>
-                </Link>
+                {
+                    links.map((item, index) => {
+                        return (
+                        <Link to={item.path}>
+                            <div className={`mt-1 flex items-center  ${active === item.path ? "bg-sky-300" : null} px-4 py-2 rounded-xl hover:bg-violet-500 hover:text-white cursor-pointer`}>
+                                <div>
+                                     {item.icon}
+                                </div>
+                                <div>&nbsp;{item.link}</div>
+                            </div>
+                         </Link>
+                         )
+                    })
+                }
                </div>
 
                 <div className='grid grid-col gap-y-4'>
