@@ -3,7 +3,21 @@ import React from "react";
 import { Data } from "../Data/Data";
 
 export default function Internal(){
-    const [showModal, setShowModal] = React.useState(false);
+    const [data, setData] = React.useState({
+      showModal: false,
+      name: '',
+      password: '',
+      email: '',
+      validation: false,
+    });
+
+    const handleSave = () => {
+      setData({
+        ...data,
+        validation: true,
+
+      })
+    }
     
     return(
         
@@ -16,11 +30,14 @@ export default function Internal(){
       <button
         className="bg-blue-400 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-3 ease-linear transition-all duration-150"
         type="button"
-        onClick={() => setShowModal(true)}
+        onClick={() => setData({
+          ...data,
+          showModal: true
+        })}
       >
         New Internal
       </button>
-      {showModal ? (
+      {data.showModal ? (
         <>
           <div
             className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
@@ -35,7 +52,7 @@ export default function Internal(){
                   </h3>
                   <button
                     className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
-                    onClick={() => setShowModal(false)}
+                    onClick={() => setData({ ...data, showModal: false })}
                   >
                     <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
                       ×
@@ -53,10 +70,11 @@ export default function Internal(){
           type="text"
           name="name"
           placeholder="Enter name"
+          onChange={(e) => setData({ ...data, name: e.target.value })}
           required
           class="block w-full px-0 mt-0 bg-transparent border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black border-gray-200"
         />
-        <span class="text-sm text-red-600 hidden" id="error">Name is required</span>
+        { data.validation && data.name.length === 0 ? <span class="text-sm text-red-600" id="error">Name is required</span> : null }
       </div>
 
       <div class="relative z-0 w-full mb-5">
@@ -64,9 +82,10 @@ export default function Internal(){
           type="email"
           name="email"
           placeholder="Enter email address"
+          onChange={(e) => setData({ ...data, email: e.target.value })}
           class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black border-gray-200"
         />
-        <span class="text-sm text-red-600 hidden" id="error">Email address is required</span>
+         { data.validation && data.email.length === 0 ? <span class="text-sm text-red-600" id="error">Email address is required</span> : null }
       </div>
 
       <div class="relative z-0 w-full mb-5">
@@ -74,9 +93,11 @@ export default function Internal(){
           type="password"
           name="password"
           placeholder="Enter password"
+          onChange={(e) => setData({ ...data, password: e.target.value })}
           class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black border-gray-200"
         />
-        <span class="text-sm text-red-600 hidden" id="error">Password is required</span>
+        { data.validation && data.password.length === 0 ? <span class="text-sm text-red-600" id="error">Password is required</span> : null }
+       
       </div>
 
       <fieldset class="relative z-0 w-full p-px mb-5">
@@ -173,14 +194,14 @@ export default function Internal(){
                   <button
                     className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
-                    onClick={() => setShowModal(false)}
+                    onClick={() => setData({ ...data, showModal: false })}
                   >
                     Close
                   </button>
                   <button
                     className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
-                    onClick={() => setShowModal(false)}
+                    onClick={handleSave}
                   >
                     Save New
                   </button>
