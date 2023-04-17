@@ -7,6 +7,12 @@ export default function Internal(){
       showModal: false,
       name: '',
       password: '',
+      level: '',
+      member: '',
+      date: '',
+      time: '',
+      amount: '',
+      duration: '',
       email: '',
       validation: false,
     });
@@ -18,6 +24,27 @@ export default function Internal(){
 
       })
     }
+    const handleSelect = (e)=>{
+      setData({ member:e})
+    }
+
+    const memberOrganization = [
+      {
+        Members: 'WAGGGS-ONLY ORGANISATIONS',
+      },
+      {
+        Members: 'WAGGGS-ONLY ORGANISATIONS',
+      },
+      {
+        Members: 'SCOUT AND GUIDE NATIONAL ASSOCIATIONS (SAGNOS)',
+      },
+      {
+        Members: 'JOINT ORGANISATIONS',
+      },
+      {
+        Members: 'FEDERATIONS',
+      },
+    ]
     
     return(
         
@@ -101,7 +128,7 @@ export default function Internal(){
       </div>
 
       <fieldset class="relative z-0 w-full p-px mb-5">
-        <legend class="absolute text-gray-500 transform scale-75 -top-3 origin-0">Choose an option</legend>
+        <legend class="absolute text-gray-500 transform scale-75 -top-3 origin-0">Choose level</legend>
         <div class="block pt-3 pb-2 space-x-4">
           <label>
             <input
@@ -110,34 +137,42 @@ export default function Internal(){
               value="1"
               class="mr-2 text-black border-2 border-gray-300 focus:border-gray-300 focus:ring-black"
             />
-            Option 1
+            Level 1
           </label>
           <label>
             <input
               type="radio"
               name="radio"
               value="2"
+              onClick={(e) => setData({ ...data, level: e.target.value })}
               class="mr-2 text-black border-2 border-gray-300 focus:border-gray-300 focus:ring-black"
             />
-            Option 2
+            Level 2
           </label>
         </div>
-        <span class="text-sm text-red-600 hidden" id="error">Option has to be selected</span>
+        { data.validation && data.level.length === 0 ? <span class="text-sm text-red-600" id="error">Level has to be selected</span> : null }
       </fieldset>
 
       <div class="relative z-0 w-full mb-5">
         <select
           name="select"
-          value=""
-          onclick="this.setAttribute('value', this.value);"
+          value={data.member}
+          onClick={(e) =>{ setData({ ...data, member: e.target.value })
+          }}
+          onChange={(e)=>handleSelect(e.target.value)}
+         
           class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 z-1 focus:outline-none focus:ring-0 focus:border-black border-gray-200"
         >
-          <option value="1">Option 1</option>
-          <option value="2">Option 2</option>
-          <option value="3">Option 3</option>
-          <option value="4">Option 4</option>
-          <option value="5">Option 5</option>
+          {
+             memberOrganization.map((item, index) => {
+              return(
+                <option value="">{item.Members}</option>
+              )
+             })
+          }
+          
         </select>
+        { data.validation && data.member.length === 0 ? <span class="text-sm text-red-600" id="error">Member has to be selected</span> : null }
       </div>
 
       <div class="flex flex-row space-x-4">
@@ -146,20 +181,20 @@ export default function Internal(){
             type="text"
             name="date"
             placeholder="Date"
-            onclick="this.setAttribute('type', 'date');"
+            onChange={(e) => setData({ ...data, date: e.target.value })}
             class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black border-gray-200"
           />
-          <span class="text-sm text-red-600 hidden" id="error">Date is required</span>
+          { data.validation && data.date.length === 0 ? <span class="text-sm text-red-600" id="error">Date is required</span> : null }
         </div>
         <div class="relative z-0 w-full">
           <input
             type="text"
             name="time"
             placeholder="Time"
-            onclick="this.setAttribute('type', 'time');"
+            onChange={(e) => setData({ ...data, time: e.target.value })}
             class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black border-gray-200"
           />
-          <span class="text-sm text-red-600 hidden" id="error">Time is required</span>
+          { data.validation && data.time.length === 0 ? <span class="text-sm text-red-600" id="error">Time is required</span> : null }
         </div>
       </div>
 
@@ -168,10 +203,11 @@ export default function Internal(){
           type="number"
           name="money"
           placeholder="Amount"
+          onChange={(e) => setData({ ...data, amount: e.target.value })}
           class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black border-gray-200"
         />
         <div class="absolute top-0 left-0 mt-3 ml-1 text-gray-400">$</div>
-        <span class="text-sm text-red-600 hidden" id="error">Amount is required</span>
+          { data.validation && data.amount.length === 0 ? <span class="text-sm text-red-600" id="error">Amount is required</span> : null }
       </div>
 
       <div class="relative z-0 w-full mb-5">
@@ -179,10 +215,11 @@ export default function Internal(){
           type="text"
           name="duration"
           placeholder="Duration"
+          onChange={(e) => setData({ ...data, duration: e.target.value })}
           class="pt-3 pb-2 pr-12 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
         />
         <div class="absolute top-0 right-0 mt-3 mr-4 text-gray-400">min</div>
-        <span class="text-sm text-red-600 hidden" id="error">Duration is required</span>
+          { data.validation && data.duration.length === 0 ? <span class="text-sm text-red-600" id="error">Duration is required</span> : null }
       </div>
     </form>
   </div>
