@@ -37,7 +37,7 @@ export default function App() {
     //     </div>
     //   )}
     // </div>
-    <div className="justify-left  flex my-10 mb-2 bg-white py-6 mx-12 rounded-t-3xl rounded-b-3xl h-[900px]">
+    <div className="flex my-10 px-4 bg-white py-6  mx-4 md:mx-12 rounded-t-3xl rounded-b-3xl md:h-[900px]">
      <BrowserRouter>
      <Sidebar />
       <Routes>
