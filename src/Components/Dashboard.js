@@ -22,7 +22,7 @@ export default function Dashboard(){
             {/* Sidebar Options. Done by Symplice 21.03.2023  */}
           
             {/* Morning Messages for Users. Done by Symplice 21.03.2023  */}
-            <div class="flex flex-col gap-y-6 bg-sky-50 mx-auto py-8 px-4 md:px-8 rounded-t-3xl  w-full rounded-b-3xl max-w-7xl">
+            <div class="flex flex-col gap-y-6 bg-sky-50 mx-auto py-8 px-4 md:px-8 rounded-t-3xl  w-full rounded-b-3xl ">
                 <div className=''> 
                      <div className='flex justify-between items-center text-sky-900 font-bold mb-4'>
                        <div className='flex items-center'>
