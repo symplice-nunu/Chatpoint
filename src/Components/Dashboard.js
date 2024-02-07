@@ -18,11 +18,11 @@ export default function Dashboard(){
     
     return(
         
-        <div>
+        <div className='w-full'>
             {/* Sidebar Options. Done by Symplice 21.03.2023  */}
           
             {/* Morning Messages for Users. Done by Symplice 21.03.2023  */}
-            <div class="flex flex-col gap-y-6 bg-sky-50 mx-auto py-8 px-4 md:px-8 rounded-t-3xl  w-full rounded-b-3xl ">
+            <div class="flex flex-col gap-y-6 bg-sky-50 mx-auto py-8 px-2 md:px-8 rounded-t-3xl  w-full rounded-b-3xl ">
                 <div className=''> 
                      <div className='flex justify-between items-center text-sky-900 font-bold mb-4'>
                        <div className='flex items-center'>
@@ -53,16 +53,14 @@ export default function Dashboard(){
                             </span>
                             <b>Announcement!</b>
                             </span>
-                        <div className='pl-6 flex justify-between items-center'>
-                            <div>ChainPoint Support will be upgraded to release 6.10 on Wednesday 6 April. Thanks to the use of slot deployment</div>
+                        <div className='pl-6 flex gap-3 justify-between items-center'>
+                            <div>ChainPoint Support will be upgraded to release 6.10 on Wednesday 6 April. Thanks to the use of slot deployment functionality no outage time is expected. After the upgrade a new message will be posted here. -- ChainPoint Support Team, 20.03.23</div>
                             <div onClick={() => setData({ ...data, flashMessage: false })} className='text-2xl cursor-pointer'><FaRegTimesCircle /></div>
                         </div>
-                        <span className='pl-6'>functionality no outage time is expected. After the upgrade a new message will be posted here.</span>
-                        <span className='pl-6'>-- ChainPoint Support Team, 20.03.23</span>
                     </div>
                 }
                 {/* Cards sections for Hight priority issues and issue ready for test. Done by Symplice 21.03.2023 */}
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 ">
+                <div className="grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-4 gap-4 ">
                     <div className="bg-white rounded-xl px-3 py-8 flex items-center">
                         <div className="border-red-200 border-2 rounded-full w-16 h-16 pt-0.5 pl-0.5">
                             <div className="border-red-600 border-2 rounded-full w-14 h-14 text-red-600 pl-5 pt-3">0</div>
@@ -107,7 +105,7 @@ export default function Dashboard(){
                     </div>
                 </div>
                 
-                <div className="flex flex-col md:flex-row gap-y-6">
+                <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-2">
                     <div className="bg-white rounded-xl px-3 py-3 h-auto w-full mr-4">
                     {/* SSL about to expire table. Done by Symplice 22.03.2023 */}
                         <div className='flex justify-between px-3'>
@@ -123,27 +121,29 @@ export default function Dashboard(){
                         </div>
 
                         <div>
-                            <table className='w-full'>
-                                <tr className='text-sky-600 h-10'>
-                                    <th className='w-48 text-left pl-3'>Company</th>
-                                    <th className='w-32 text-left'>Start Date</th>
-                                    <th className='w-32 text-left'>End date</th>
-                                    <th className='text-left'>Remark</th>
-                                </tr>
-                                {
-                                    SSLExpire.map((item, index) => {
-                                        return(
-                                    <tr key={index} className={`${index % 2 === 0 ? "bg-sky-50" : "bg-white"} text-sky-800 text-xs h-8 rounded-xl`}>
-                                    <td className='pl-3'>{item.Company}</td>
-                                    <td>{item.StartDate}</td>
-                                    <td>{item.EndDate}</td>
-                                    <td>{item.Remark}</td>
-                                </tr>
-                                        )
-                                    })
-                                }
-                               
-                            </table>
+                            <div className='overflow-x-auto w-full'>
+                                <table className='w-full'>
+                                    <tr className='text-sky-600 h-10'>
+                                        <th className='w-48 text-left pl-3'>Company</th>
+                                        <th className='w-32 text-left'>Start Date</th>
+                                        <th className='w-32 text-left'>End date</th>
+                                        <th className='text-left'>Remark</th>
+                                    </tr>
+                                    {
+                                        SSLExpire.map((item, index) => {
+                                            return(
+                                        <tr key={index} className={`${index % 2 === 0 ? "bg-sky-50" : "bg-white"} text-sky-800 text-xs h-8 rounded-xl`}>
+                                        <td className='pl-3'>{item.Company}</td>
+                                        <td>{item.StartDate}</td>
+                                        <td>{item.EndDate}</td>
+                                        <td>{item.Remark}</td>
+                                    </tr>
+                                            )
+                                        })
+                                    }
+                                
+                                </table>
+                            </div>
                         
                         </div>
                     </div>
@@ -157,6 +157,7 @@ export default function Dashboard(){
                         </div>
                     </div>
                     <div>
+                        <div className='overflow-x-auto w-full'>
                             <table className='w-full'>
                                 <tr className='text-sky-600 h-10'>
                                     <th className='w-48 text-left text-xs pl-3'>Responsible</th>
@@ -177,6 +178,7 @@ export default function Dashboard(){
                                 
                             </table>
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>
