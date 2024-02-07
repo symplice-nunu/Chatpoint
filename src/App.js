@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "./Components/Dashboard";
 import NotFound from "./Components/404";
@@ -8,16 +8,15 @@ import Internal from "./Components/Pages/Internal";
 import Projects from "./Components/Pages/Projects";
 import Development from "./Components/Pages/Development";
 import Support from "./Components/Pages/Support";
-import NavBar from "./Components/NavBar";
 
 
 export default function App() {
 
-  const[message , setMessage]  = useState(false)
-  const autoMessage = ["aline" ,"symplice" , "Armel" , "Armel"]
-  const  getMessage = () => {
-    setMessage (!message)
-  }
+  // const[message , setMessage]  = useState(false)
+  // const autoMessage = ["aline" ,"symplice" , "Armel" , "Armel"]
+  // const  getMessage = () => {
+  //   setMessage (!message)
+  // }
  
   return (
     // <div className="w-full max-w-7xl mx-auto mt-24 flex flex-col gap-y-8 justify-center items-center">
@@ -37,7 +36,7 @@ export default function App() {
     //     </div>
     //   )}
     // </div>
-    <div className="flex my-10 px-4 bg-white py-6  mx-4 md:mx-12 rounded-t-3xl rounded-b-3xl md:h-[900px]">
+    <div className="flex my-2  px-4 bg-white py-6  mx-2  rounded-t-3xl rounded-b-3xl">
      <BrowserRouter>
      <Sidebar />
       <Routes>

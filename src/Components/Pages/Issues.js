@@ -59,9 +59,9 @@ export default function Issues(){
         ],
       })
     return(
-        <div class="flex flex-col gap-y-6 bg-sky-50 w-full py-8 px-8 mr-6 rounded-t-3xl rounded-b-3xl">
+        <div class="flex flex-col gap-y-6 bg-sky-50 w-full py-8 px-1 lg:px-8 xl:px-8 rounded-t-3xl rounded-b-3xl">
             <NavBar />
-            <div className="w-full px-2 py-16 sm:px-0">
+            <div className="w-full py-16 sm:px-0">
       <Tab.Group>
         <Tab.List className="flex space-x-1 rounded-xl bg-blue-900/20 p-1">
           {Object.keys(categories).map((category) => (
@@ -107,14 +107,7 @@ export default function Issues(){
                       <li>&middot;</li>
                       <li>{post.shareCount} shares</li>
                     </ul>
-
-                    <a
-                      href="#"
-                      className={classNames(
-                        'absolute inset-0 rounded-md',
-                        'ring-blue-400 focus:z-10 focus:outline-none focus:ring-2'
-                      )}
-                    />
+                    <span className={classNames('absolute inset-0 rounded-md','ring-blue-400 focus:z-10 focus:outline-none focus:ring-2')} />
                   </li>
                 ))}
               </ul>

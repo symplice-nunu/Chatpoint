@@ -6,10 +6,10 @@ import { Data } from "../Data/Data";
 export default function Projects(){
     const [showModal, setShowModal] = React.useState(false);
     return(
-        <div class="flex flex-col gap-y-6 bg-sky-50 w-full py-8 px-8 mr-6 rounded-t-3xl rounded-b-3xl">
+        <div class="flex flex-col gap-y-6 bg-sky-50 w-full py-8 px-1 rounded-t-3xl rounded-b-3xl">
             <NavBar />
             <div className="flex">
-                    <div className="bg-white rounded-xl px-3 py-3 h-auto w-full mr-4">
+                    <div className="bg-white rounded-xl px-3 py-3 h-auto w-full">
                         <div>
                         <>
       <button
@@ -22,7 +22,7 @@ export default function Projects(){
       {showModal ? (
         <>
           <div
-            className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+            className="justify-center px-2 items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
           >
             <div className="relative w-auto my-6 mx-auto max-w-3xl">
               {/*content*/}
@@ -191,7 +191,7 @@ export default function Projects(){
       ) : null}
     </>  
                         </div>
-                    <div>
+                    <div className="overflow-x-auto w-full">
                     <table className='w-full'>
                                 <tr className='text-sky-600 h-10'>
                                     <th className='w-48 text-center pl-3'>ID</th>
